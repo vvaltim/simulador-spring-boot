@@ -6,7 +6,7 @@ import javax.persistence.*
 @Table(name = "TEACHER")
 class Teacher {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue
     @Column(name = "COD_TEACHER", nullable = false)
     var codTeacher: Long? = 0
 

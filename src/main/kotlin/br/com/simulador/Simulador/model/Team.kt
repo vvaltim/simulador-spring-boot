@@ -6,7 +6,10 @@ import javax.persistence.*
 @Table(name = "TEAM")
 class Team {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue
+    @Column(name = "COD_TEAM")
+    var codTeam: Long = 0
+
     @Column(name = "PERIOD", nullable = false)
     var period: Long = 0
 
