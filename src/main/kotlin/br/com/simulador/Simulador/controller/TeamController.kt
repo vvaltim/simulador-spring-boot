@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*
 
 @RestController
 class TeamController(val teamRepository: TeamRepository) {
+    @CrossOrigin(origins = ["http://localhost:3000"])
     @GetMapping("/team/allTeam/{id}")
     fun getAllTeamByCodProf(@PathVariable id: Long): List<Team> {
         val allTeam = teamRepository.findAll()
