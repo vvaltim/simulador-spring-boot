@@ -22,9 +22,8 @@ class Team {
     @Column(name = "COD_TEACHER", nullable = false)
     var codTeacher: Long = 0
 
-//    @ManyToOne
-//    @JoinColumn(name = "TEACHER", referencedColumnName = "TEACHER")
-//    var codTeacher: Teacher? = null
+    @Column(name = "DISCIPLINE", nullable = false)
+    var discipline: String? = ""
 
     @Column(name = "USERNAME", nullable = false)
     var username: String = ""
@@ -34,4 +33,8 @@ class Team {
 
     @Column(name = "ACTIVE", nullable = false)
     var active: Boolean = true
+
+    //    @ManyToOne
+//    @JoinColumn(name = "TEACHER", referencedColumnName = "TEACHER")
+//    var codTeacher: Teacher? = null
 }

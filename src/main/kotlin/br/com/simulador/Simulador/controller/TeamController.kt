@@ -10,9 +10,10 @@ class TeamController(val teamRepository: TeamRepository) {
     @GetMapping("/team/allTeam/{id}")
     fun getAllTeamByCodProf(@PathVariable id: Long): List<Team> {
         val allTeam = teamRepository.findAll()
-        return allTeam.filter { it.codTeacher == id }
+        return allTeam.filter { it.codTeacher == id && it.active }
     }
 
+    @CrossOrigin(origins = ["http://localhost:3000"])
     @PostMapping("/team/create")
     fun createTeam(@RequestBody team: Team): Team {
         return teamRepository.save(team)
