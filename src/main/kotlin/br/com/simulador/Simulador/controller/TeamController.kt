@@ -9,8 +9,7 @@ class TeamController(val teamRepository: TeamRepository) {
     @CrossOrigin(origins = ["http://localhost:3000"])
     @GetMapping("/team/allTeam/{id}")
     fun getAllTeamByCodProf(@PathVariable id: Long): List<Team> {
-        val allTeam = teamRepository.findAll()
-        return allTeam.filter { it.codTeacher == id && it.active }
+        return teamRepository.findTeamByCodTeacher(id, true)
     }
 
     @CrossOrigin(origins = ["http://localhost:3000"])
