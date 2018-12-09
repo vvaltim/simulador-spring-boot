@@ -42,4 +42,7 @@ class Exercise {
 
     @Column(name = "COD_SANITATION_PROCESS", nullable = true)
     var codSanitationProcess: Long? = null
+
+    @Column(name = "VEREDICT", nullable = true)
+    var veredict: String? = null
 }
