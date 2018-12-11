@@ -15,7 +15,7 @@ class ExerciseController(val exerciseRepository: ExerciseRepository) {
             item.dateCreate = Date()
             exerciseRepository.save(item)
         }
-        return "{ 'responseMessage': 'Salvo com sucesso' }"
+        return "{ \"responseMessage\": \"Salvo com sucesso\" }"
     }
 
     @CrossOrigin(origins = ["http://localhost:3000"])
@@ -29,5 +29,23 @@ class ExerciseController(val exerciseRepository: ExerciseRepository) {
     fun getAllTeamByCodProf(@PathVariable id: Long): List<Exercise> {
         val allExercise = exerciseRepository.findAll()
         return allExercise.filter { it.codTeam == id}
+    }
+
+    @CrossOrigin(origins = ["http://localhost:3000"])
+    @PostMapping("/exercise/update")
+    fun updateExercise(@RequestBody exercise: Exercise): String {
+        return if (exercise.codExercise != null){
+            exercise.status = 2
+            exerciseRepository.save(exercise)
+            "{ \"responseMessage\": \"Salvo com sucesso\" }"
+        } else {
+            "{ \"responseMessage\": \"Erro ao salvar registro\" }"
+        }
+    }
+
+    @CrossOrigin(origins = ["http://localhost:3000"])
+    @GetMapping("/exercise/listByCodTeacher/{id}")
+    fun getExerciseByCodTeacherAndStatus(@PathVariable id: Long): List<Exercise> {
+        return exerciseRepository.findExerciseByCodTeacher(id)
     }
 }
