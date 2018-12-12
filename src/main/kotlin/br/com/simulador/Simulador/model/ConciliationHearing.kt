@@ -1,7 +1,5 @@
 package br.com.simulador.Simulador.model
 
-import com.fasterxml.jackson.annotation.JsonFormat
-import java.util.*
 import javax.persistence.*
 
 @Entity
@@ -12,13 +10,16 @@ class ConciliationHearing {
     @Column(name = "COD_CONCILIATION_HEARING", nullable = false)
     var codConciliationHearing: Long? = null
 
-    @JsonFormat(pattern = "dd-MM-yyyy HH:mm")
+    @Column(name = "JUSTIFICATION", nullable = false, length = 5000)
+    var justification: String? = null
+
+//    @JsonFormat(pattern = "dd-MM-yyyy HH:mm")
     @Column(name = "DATE", nullable = false)
-    var date: Date? = null
+    var date: String? = null
 
     @Column(name = "LOCATION", nullable = false)
     var location: String? = null
 
-    @Column(name = "ADDRESS_COMPLEMENT")
+    @Column(name = "ADDRESS_COMPLEMENT", nullable = true)
     var addressComplement: String? = null
 }

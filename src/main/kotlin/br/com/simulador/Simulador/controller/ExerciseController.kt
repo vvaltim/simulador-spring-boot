@@ -1,13 +1,13 @@
 package br.com.simulador.Simulador.controller
 
 import br.com.simulador.Simulador.model.Exercise
-import br.com.simulador.Simulador.model.Team
 import br.com.simulador.Simulador.repository.ExerciseRepository
 import org.springframework.web.bind.annotation.*
 import java.util.*
 
 @RestController
 class ExerciseController(val exerciseRepository: ExerciseRepository) {
+
     @CrossOrigin(origins = ["http://localhost:3000"])
     @PostMapping("/exercise/create")
     fun saveExerciseCase(@RequestBody exercises: List<Exercise>) : String{
@@ -35,7 +35,6 @@ class ExerciseController(val exerciseRepository: ExerciseRepository) {
     @PostMapping("/exercise/update")
     fun updateExercise(@RequestBody exercise: Exercise): String {
         return if (exercise.codExercise != null){
-            exercise.status = 2
             exerciseRepository.save(exercise)
             "{ \"responseMessage\": \"Salvo com sucesso\" }"
         } else {
