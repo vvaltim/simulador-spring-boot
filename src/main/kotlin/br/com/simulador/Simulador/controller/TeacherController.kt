@@ -21,7 +21,7 @@ class TeacherController(val repository: TeacherRepository) {
     @GetMapping("teacher/{id}")
     fun one(@PathVariable id: Long): Teacher {
         return repository.findById(id)
-                .orElseThrow { TeacherNotFoundException(id) }
+                .orElseThrow { TeacherNotFoundException() }
     }
 
     @PutMapping("/teacher/{id}")

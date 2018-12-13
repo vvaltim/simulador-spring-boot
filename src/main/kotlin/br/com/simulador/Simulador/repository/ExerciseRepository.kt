@@ -8,7 +8,7 @@ import org.springframework.data.repository.query.Param
 interface ExerciseRepository: JpaRepository<Exercise, Long> {
 
     //TODO:Adicionar os status que precisam de iteração do professor
-    @Query("SELECT e FROM Exercise e WHERE  e.codTeacher = :codTeacher AND e.status = 2")
+    @Query("SELECT e FROM Exercise e WHERE  e.codTeacher = :codTeacher")
     fun findExerciseByCodTeacher(
             @Param("codTeacher") codTeacher: Long
     ): List<Exercise>

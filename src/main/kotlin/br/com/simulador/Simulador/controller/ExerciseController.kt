@@ -47,4 +47,36 @@ class ExerciseController(val exerciseRepository: ExerciseRepository) {
     fun getExerciseByCodTeacherAndStatus(@PathVariable id: Long): List<Exercise> {
         return exerciseRepository.findExerciseByCodTeacher(id)
     }
+
+    @CrossOrigin(origins = ["http://localhost:3000"])
+    @PostMapping("/exercise/updateConciliation")
+    fun updateExerciseConciliation(@RequestBody exercise: Exercise): String {
+        //preencheram os 2
+        if (exercise.studentOneConciliation != null || exercise.studentTwoConciliation != null){
+
+            //houve auto composição, caso encerrado
+            if (exercise.studentOneConciliation == true && exercise.studentTwoConciliation == true){
+                exercise.status = 99
+                exercise.veredict = "Houve acordo entre as partes."
+            } else {
+                //não ouve composição
+
+                //se o status for 4 (primeira audiencia de conciliação), lebera para o advogado 2 fazer a Contestação status 5
+                if (exercise.status == 4){
+                    exercise.status = 5
+                }
+                //TODO: Adicionar o status de não contestação da segunda audiencia de conciliação
+                if (exercise.status == 7){
+                    exercise.status = 8
+                }
+            }
+        }
+
+        return if (exercise.codExercise != null){
+            exerciseRepository.save(exercise)
+            "{ \"responseMessage\": \"Salvo com sucesso\" }"
+        } else {
+            "{ \"responseMessage\": \"Erro ao salvar registro\" }"
+        }
+    }
 }

@@ -37,8 +37,17 @@ class Exercise {
     @Column(name = "COD_CONCILIATION_HEARING", nullable = true)
     var codConciliationHearing: Long? = null
 
+    @Column(name = "STUDENT_ONE_CONCILIATION", nullable = true)
+    var studentOneConciliation: Boolean? = null
+
+    @Column(name = "STUDENT_TWO_CONCILIATION", nullable = true)
+    var studentTwoConciliation: Boolean? = null
+
     @Column(name = "CONTESTATION", nullable = true, length = 5000)
     var contestation: String? = null
+
+    @Column(name = "CORRECTION_CONTESTATION", nullable = true, length = 5000)
+    var correctionContestation: String? = null
 
     @Column(name = "COD_SANITATION_PROCESS", nullable = true)
     var codSanitationProcess: Long? = null
