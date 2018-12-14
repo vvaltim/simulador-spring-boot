@@ -18,7 +18,7 @@ class Exercise {
     @Column(name = "COD_TEAM", nullable = false)
     var codTeam: Long? = 0
 
-    @Column(name = "CASE_DESCRIPTION", nullable = false, length = 5000)
+    @Column(name = "CASE_DESCRIPTION", nullable = false, length = 500)
     var caseDescription: String? = null
 
     @JsonFormat(pattern = "dd-MM-yyyy")
@@ -28,10 +28,10 @@ class Exercise {
     @Column(name = "STATUS", nullable = false)
     var status: Int? = null
 
-    @Column(name = "INITIAL_PETITION", nullable = true, length = 5000)
+    @Column(name = "INITIAL_PETITION", nullable = true, length = 500)
     var initialPetition: String? = null
 
-    @Column(name = "CORRECTION_INITIAL_PETITION", nullable = true, length = 5000)
+    @Column(name = "CORRECTION_INITIAL_PETITION", nullable = true, length = 500)
     var correctionInitialPetition: String? = null
 
     @Column(name = "COD_CONCILIATION_HEARING", nullable = true)
@@ -43,10 +43,10 @@ class Exercise {
     @Column(name = "STUDENT_TWO_CONCILIATION", nullable = true)
     var studentTwoConciliation: Boolean? = null
 
-    @Column(name = "CONTESTATION", nullable = true, length = 5000)
+    @Column(name = "CONTESTATION", nullable = true, length = 500)
     var contestation: String? = null
 
-    @Column(name = "CORRECTION_CONTESTATION", nullable = true, length = 5000)
+    @Column(name = "CORRECTION_CONTESTATION", nullable = true, length = 500)
     var correctionContestation: String? = null
 
     @Column(name = "COD_SANITATION_PROCESS", nullable = true)
